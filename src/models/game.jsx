@@ -28,7 +28,6 @@ class GameModel {
   }
 
   static update = (id, gameData) => {
-    console.log("update")
     return fetch(`${url}/games/${id}`, {
       method: "PUT",
       headers: {
@@ -39,8 +38,12 @@ class GameModel {
     .then(response => response.json())
   }
 
-  static delete = () => {
+  static delete = (id) => {
     console.log("delete")
+    return fetch(`${url}/games/${id}`, {
+      method: "DELETE",
+    })
+    .then(response => response.json())
   }
 };
 

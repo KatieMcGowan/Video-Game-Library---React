@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import GameModel from "../models/game";
 import EditGame from "./EditGame";
 
@@ -7,6 +7,7 @@ const GameShow = () => {
   const [game, setGame] = useState({});
 
   let id = useParams().id;
+  let navigate = useNavigate()
 
   useEffect(() => {
     GameModel.show(id).then(data => setGame(data))
@@ -20,6 +21,9 @@ const GameShow = () => {
       <EditGame
         game={game} 
       />
+      <button onClick={() => GameModel.delete(id).then(data => {navigate("/games")})}>
+        Delete Game
+      </button>
     </div>
   );
 };
