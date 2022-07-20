@@ -1,5 +1,3 @@
-import { Redirect } from 'react-router-dom';
-
 const url = `http://localhost:4000/api/v1`
 
 class GameModel {
@@ -19,7 +17,6 @@ class GameModel {
   }
 
   static create = (gameData) => {
-    console.log(gameData)
     return fetch(`${url}/games`, {
       method: "POST",
       headers: {
@@ -30,8 +27,16 @@ class GameModel {
     .then(response => response.json())
   }
 
-  static update = () => {
+  static update = (id, gameData) => {
     console.log("update")
+    return fetch(`${url}/games/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(gameData)
+    })
+    .then(response => response.json())
   }
 
   static delete = () => {

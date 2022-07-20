@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-// import GameModel from "../models/game";
 
 const GameCard = (props) => {
   return (

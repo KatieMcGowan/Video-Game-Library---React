@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom";
 import GameModel from "../models/game"
 import GameCard from "../components/GameCard"
-import NewGame from "./NewGame"
 
 const GameList = () => {
   const [state, setState] = useState({
